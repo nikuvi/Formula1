@@ -17,7 +17,7 @@
   <ul>
     <img src="https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"><a href="https://app.powerbi.com/"></a>
     <img src="https://img.shields.io/badge/python-ADD8E6?style=for-the-badge&logo=python&logoColor=black"><a href="https://www.python.org/"></a>
-    <img src="https://img.shields.io/badge/sql-ADD8E6?style=for-the-badge&logo=sql&logoColor=black"><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"></a>
+    <img src="https://img.shields.io/badge/sql-FFF9C4?style=for-the-badge&logo=sql&logoColor=black"><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads"></a>
   </ul>
 </details>
 
