@@ -1,0 +1,21 @@
+DriverId,Abbreviation,FullName,TeamName,Points,Position
+piastri,PIA,Oscar Piastri,McLaren,25.0,1.0
+norris,NOR,Lando Norris,McLaren,18.0,2.0
+russell,RUS,George Russell,Mercedes,15.0,3.0
+max_verstappen,VER,Max Verstappen,Red Bull Racing,12.0,4.0
+ocon,OCO,Esteban Ocon,Haas F1 Team,10.0,5.0
+antonelli,ANT,Kimi Antonelli,Mercedes,8.0,6.0
+albon,ALB,Alexander Albon,Williams,6.0,7.0
+bearman,BEA,Oliver Bearman,Haas F1 Team,4.0,8.0
+stroll,STR,Lance Stroll,Aston Martin,2.0,9.0
+sainz,SAI,Carlos Sainz,Williams,1.0,10.0
+hadjar,HAD,Isack Hadjar,Racing Bulls,0.0,11.0
+lawson,LAW,Liam Lawson,Red Bull Racing,0.0,12.0
+doohan,DOO,Jack Doohan,Alpine,0.0,13.0
+bortoleto,BOR,Gabriel Bortoleto,Kick Sauber,0.0,14.0
+hulkenberg,HUL,Nico Hulkenberg,Kick Sauber,0.0,15.0
+tsunoda,TSU,Yuki Tsunoda,Racing Bulls,0.0,16.0
+alonso,ALO,Fernando Alonso,Aston Martin,0.0,17.0
+leclerc,LEC,Charles Leclerc,Ferrari,0.0,18.0
+hamilton,HAM,Lewis Hamilton,Ferrari,0.0,19.0
+gasly,GAS,Pierre Gasly,Alpine,0.0,20.0

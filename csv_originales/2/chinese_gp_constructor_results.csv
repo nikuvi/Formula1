@@ -1,0 +1,21 @@
+DriverId,TeamName,FullName,Position,Points,Status,Time
+piastri,McLaren,Oscar Piastri,1.0,25.0,Finished,0 days 01:30:55.026000
+norris,McLaren,Lando Norris,2.0,18.0,Finished,0 days 00:00:09.748000
+russell,Mercedes,George Russell,3.0,15.0,Finished,0 days 00:00:11.097000
+max_verstappen,Red Bull Racing,Max Verstappen,4.0,12.0,Finished,0 days 00:00:16.656000
+ocon,Haas F1 Team,Esteban Ocon,5.0,10.0,Finished,0 days 00:00:49.969000
+antonelli,Mercedes,Kimi Antonelli,6.0,8.0,Finished,0 days 00:00:53.748000
+albon,Williams,Alexander Albon,7.0,6.0,Finished,0 days 00:00:56.321000
+bearman,Haas F1 Team,Oliver Bearman,8.0,4.0,Finished,0 days 00:01:01.303000
+stroll,Aston Martin,Lance Stroll,9.0,2.0,Finished,0 days 00:01:10.204000
+sainz,Williams,Carlos Sainz,10.0,1.0,Finished,0 days 00:01:16.387000
+hadjar,Racing Bulls,Isack Hadjar,11.0,0.0,Finished,0 days 00:01:18.875000
+lawson,Red Bull Racing,Liam Lawson,12.0,0.0,Finished,0 days 00:01:21.147000
+doohan,Alpine,Jack Doohan,13.0,0.0,Finished,0 days 00:01:28.401000
+bortoleto,Kick Sauber,Gabriel Bortoleto,14.0,0.0,Lapped,0 days 00:00:10.756000
+hulkenberg,Kick Sauber,Nico Hulkenberg,15.0,0.0,Lapped,0 days 00:00:20.226000
+tsunoda,Racing Bulls,Yuki Tsunoda,16.0,0.0,Lapped,0 days 00:00:23.511000
+alonso,Aston Martin,Fernando Alonso,17.0,0.0,Retired,
+leclerc,Ferrari,Charles Leclerc,18.0,0.0,Disqualified,
+hamilton,Ferrari,Lewis Hamilton,19.0,0.0,Disqualified,
+gasly,Alpine,Pierre Gasly,20.0,0.0,Disqualified,
