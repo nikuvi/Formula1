@@ -19,9 +19,9 @@ CREATE TABLE Circuits (
 	Fullname NVARCHAR (150) NOT NULL,
 	Country NVARCHAR (150) NOT NULL,
 	City NVARCHAR (100) NOT NULL,
-	lat FLOAT NOT NULL,
-	alt FLOAT NOT NULL,
-	ing FLOAT NOT NULL
+	Latitude FLOAT NOT NULL,
+	Altitude FLOAT NOT NULL,
+	Longitude FLOAT NOT NULL
 );
 
 -- Crear Tabla de Resultados
@@ -30,7 +30,7 @@ CREATE TABLE Results (
 	ResultID INT PRIMARY KEY,
 	RaceID INT,
 	DriverID INT,
-	ConstructorID INT,
+	TeamID INT,
 	StatusID INT,
 	Grid INT NOT NULL,
 	FinalPos INT NOT NULL,
@@ -46,22 +46,22 @@ CREATE TABLE Races (
 	RaceID INT PRIMARY KEY,
 	CircuitID INT,
 	[Year] INT,
-	Circuit NVARCHAR (100),
+	[Name] NVARCHAR (100),
 	[Date] DATE,
 	[Time] TIME
 );
 
 -- Crear Tabla de Status
 
-CREATE TABLE Status (
+CREATE TABLE [Status] (
 	StatusID INT PRIMARY KEY,
 	[Status] NVARCHAR(100)
 );
 
--- Crear Tabla de Constructors
+-- Crear Tabla de Teams (Constructors)
 
-CREATE TABLE Constructors (
-	ConstructorID INT PRIMARY KEY,
+CREATE TABLE Teams (
+	TeamID INT PRIMARY KEY,
 	Team NVARCHAR(100),
 	Nationality NVARCHAR(100)
 );
@@ -69,11 +69,10 @@ CREATE TABLE Constructors (
 -- Crear Tabla de Constructors_Results
 
 CREATE TABLE Constructors_Results (
-	ConstructorResultID INT PRIMARY KEY,
-	ConstructorID INT,
+	TeamID INT,
 	RaceID INT,
 	Points INT,
-	[Status] NVARCHAR (100),
+	StatusID INT,
 );
 
 -- Crear Tabla de Qualifying
@@ -82,7 +81,7 @@ CREATE TABLE Qualifying (
 	QualifyID INT PRIMARY KEY,
 	RaceID INT,
 	DriverID INT,
-	ConstructorID INT,
+	TeamID INT,
 	Position INT,
 	Q1 TIME,
 	Q2 TIME,
@@ -114,7 +113,6 @@ CREATE TABLE Drivers_Lap_Times (
 -- Crear Tabla de Driver_Standings
 
 CREATE TABLE Driver_Standings (
-	DriverStangingID INT PRIMARY KEY,
 	RaceID INT,
 	DriverID INT,
 	Points INT,
@@ -125,9 +123,8 @@ CREATE TABLE Driver_Standings (
 -- Crear Tabla de Constructors_Standings
 
 CREATE TABLE Constructors_Standings (
-	ConstructorStangingID INT PRIMARY KEY,
 	RaceID INT,
-	ConstructorID INT,
+	TeamID INT,
 	Points INT,
 	Position INT,
 	Wins INT
