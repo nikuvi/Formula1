@@ -9,6 +9,8 @@
 > Proyecto en progreso..
 > Analizaré bases de datos de la historia de la Formula 1 hasta el presente.
 
+![ER Model](https://github.com/user-attachments/assets/46a823cb-3497-4d71-a541-bc8a00a5007e)
+
 <!-- TechStack -->
 ## :space_invader: Herramientas
 
