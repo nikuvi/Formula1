@@ -37,7 +37,7 @@ CREATE TABLE Results (
 	Points INT NOT NULL,
 	Laps INT NOT NULL,
 	FastestLap INT NOT NULL,
-	FastestLapTime NVARCHAR (50) NOT NULL
+	FastestLapTime TIME NOT NULL
 );
 
 -- Crear Tabla de Race
