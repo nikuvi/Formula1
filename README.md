@@ -10,7 +10,7 @@
 > Analizaré bases de datos de la historia de la Formula 1 hasta el presente.
 
 <details>
-  <summary>ER Model</summary>
+  <summary><img src="https://img.icons8.com/?size=100&id=57E3BixeAfjs&format=png&color=000000"></a>ER Model</summary>
   <ul>
     <img src="https://github.com/user-attachments/assets/46a823cb-3497-4d71-a541-bc8a00a5007e"></a>
   </ul>
