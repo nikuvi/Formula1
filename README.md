@@ -2,9 +2,8 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/nikuvi/Formula1?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/nikuvi/Formula1?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/nikuvi/Formula1?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/nikuvi/Formula1?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/nikuvi/Formula1?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/nikuvi/Formula1?style=for-the-badge) 
+![GitHub last commit](https://img.shields.io/github/last-commit/nikuvi/Formula1?style=for-the-badge)
 
 > Proyecto en progreso..
 > Analizaré bases de datos de la historia de la Formula 1 hasta el presente.
