@@ -1,0 +1,10 @@
+SELECT Driver, Car, PTS
+FROM GP 
+WHERE PTS > 300
+GROUP BY Driver, Car, PTS 
+ORDER BY PTS DESC;
+
+SELECT d.Driver, SUM(g.PTS)
+FROM GP g, Drivers d
+GROUP BY d.Driver, g.PTS
+ORDER BY g.PTS DESC;
