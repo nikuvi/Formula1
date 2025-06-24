@@ -1,17 +1,23 @@
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import os
 
 class DriversToSQL:
-    def __init__(self, server="localhost", database="Formula1_Data"):
+    def __init__(self, server="NIKU\\SQLEXPRESS", database="Formula1"):
         """
         Conexión específica para migrar drivers.csv
         """
-        self.connection_string = f'mssql+pyodbc://{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
+        # Formato correcto para SQLAlchemy con instancia nombrada
+        if '\\' in server:
+            # Para instancias nombradas como NIKU\SQLEXPRESS
+            self.connection_string = f'mssql+pyodbc://@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
+        else:
+            # Para servidor predeterminado
+            self.connection_string = f'mssql+pyodbc://{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
         self.engine = create_engine(self.connection_string)
         print(f"🔌 Conectando a {database}...")
 
-    def preview_csv(self, csv_path="drivers.csv"):
+    def preview_csv(self, csv_path="csv_limpios\\drivers_GP.csv"):
         """
         Ver qué contiene el CSV antes de migrar
         """
@@ -31,14 +37,14 @@ class DriversToSQL:
             print(f"❌ Error leyendo CSV: {str(e)}")
             return None
 
-    def migrate_drivers(self, csv_path="drivers.csv", table_name="drivers"):
+    def migrate_drivers(self, csv_path="csv_limpios\\drivers_GP.csv", table_name="drivers"):
         """
         Migrar drivers.csv a SQL Server
         """
         try:
             # Leer CSV
             df = pd.read_csv(csv_path)
-            print(f"📊 Cargando drivers.csv ({len(df)} conductores)")
+            print(f"📊 Cargando drivers_data.csv ({len(df)} conductores)")
             
             # Limpiar nombres de columnas
             original_columns = df.columns.tolist()
@@ -99,17 +105,65 @@ class DriversToSQL:
 
     def test_connection(self):
         """
-        Probar conexión a SQL Server
+        Probar conexión a SQL Server con múltiples métodos
         """
+        # Método 1: SQLAlchemy
         try:
             with self.engine.connect() as conn:
-                result = conn.execute("SELECT 1 as test")
-                print("✅ Conexión a SQL Server exitosa")
+                result = conn.execute(text("SELECT 1 as test"))
+                print("✅ Conexión SQLAlchemy exitosa")
                 return True
         except Exception as e:
-            print(f"❌ Error de conexión: {str(e)}")
-            print("💡 Verifica que SQL Server esté corriendo y la BD exista")
-            return False
+            print(f"❌ SQLAlchemy falló: {str(e)}")
+        
+        # Método 2: pyodbc directo
+        try:
+            import pyodbc
+            server_parts = self.connection_string.split('/')[2].split('?')[0]
+            database = self.connection_string.split('/')[3].split('?')[0]
+            
+            conn_str = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server_parts};DATABASE={database};Trusted_Connection=yes;'
+            conn = pyodbc.connect(conn_str)
+            cursor = conn.cursor()
+            cursor.execute("SELECT 1")
+            conn.close()
+            print("✅ Conexión pyodbc directa exitosa")
+            
+            # Recrear engine con configuración que funciona
+            self.connection_string = f'mssql+pyodbc://@{server_parts}/{database}?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
+            self.engine = create_engine(self.connection_string)
+            return True
+            
+        except Exception as e:
+            print(f"❌ pyodbc directo falló: {str(e)}")
+        
+        # Método 3: Intentar con diferentes formatos
+        server_options = [
+            "NIKU\\SQLEXPRESS",
+            ".\\SQLEXPRESS", 
+            "localhost\\SQLEXPRESS",
+            "(local)\\SQLEXPRESS"
+        ]
+        
+        for server in server_options:
+            try:
+                import pyodbc
+                conn_str = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE=master;Trusted_Connection=yes;'
+                conn = pyodbc.connect(conn_str)
+                conn.close()
+                print(f"✅ Servidor encontrado: {server}")
+                
+                # Actualizar configuración
+                self.connection_string = f'mssql+pyodbc://@{server}/Formula1?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
+                self.engine = create_engine(self.connection_string)
+                return True
+                
+            except Exception:
+                continue
+        
+        print("❌ No se pudo establecer conexión con ningún método")
+        print("💡 Verifica que SQL Server esté corriendo y tengas permisos")
+        return False
 
 # Script principal
 if __name__ == "__main__":
@@ -117,15 +171,15 @@ if __name__ == "__main__":
     print("=" * 50)
     
     # Configuración - CAMBIAR SEGÚN TU SETUP
-    SERVER = "NIKU/SQLEXPRESS"  # Tu servidor SQL
-    DATABASE = "Formula1"  # Tu base de datos
-    CSV_FILE = "D:\Data Analitycs\Trabajo\GitHub-Repos\Formula1\csv_limpios\drivers.csv"  # Ruta a tu CSV
-    TABLE_NAME = "Drivers"  # Nombre de tabla en SQL
+    SERVER = "NIKU\\SQLEXPRESS"  # Tu servidor SQL (escapado)
+    DATABASE = "Formula1"  # Tu base de datos - VERIFICAR QUE EXISTA
+    CSV_FILE = "csv_limpios\\drivers_GP.csv"  # Ruta a tu CSV
+    TABLE_NAME = "GP"  # Nombre de tabla en SQL
     
     # Verificar que el CSV existe
     if not os.path.exists(CSV_FILE):
         print(f"❌ No se encuentra el archivo: {CSV_FILE}")
-        print("💡 Asegúrate de que el archivo esté en la misma carpeta que este script")
+        print("💡 Asegúrate de que el archivo esté en la carpeta csv_limpios/")
         exit()
     
     # Crear migrador
