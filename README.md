@@ -14,7 +14,7 @@
     <h3>ER Model</h3>
   </summary>
   <ul>
-    <img src="https://github.com/user-attachments/assets/46a823cb-3497-4d71-a541-bc8a00a5007e"></a>
+    <img src="https://github.com/user-attachments/assets/21f26c6f-bc85-4b45-9fb4-143cd9c17776"></a>
   </ul>
 </details>
 
