@@ -10,7 +10,7 @@
 
 <details>
   <summary>
-    <img src="https://img.icons8.com/?size=100&id=46544&format=png&color=000000" height="20" width="20" /></a>
+    <img src="https://img.icons8.com/?size=100&id=46544&format=png&color=000000" height="25" width="25" /></a>
     <h3>ER Model</h3>
   </summary>
   <ul>
