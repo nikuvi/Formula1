@@ -35,7 +35,7 @@
 - **csv_limpios**: Carpeta con archivos csv limpios para trabajar.
 - **csv_originales**: Carpeta con archivos csv originales.
 - **SQL/Querys**: Carpeta llamada SQL donde se encuentran las Querys utilizadas para crear la Base de Datos y las Tablas.
-- **ER Model.png**: Imagen que contiene el Modelo Entidad Relación del proyecto (no definitivo.
+- **ER Model.png**: Imagen que contiene el Modelo Entidad Relación del proyecto (no definitivo).
 - **ETL.ipynb**: Archivo Jupyter Notebook que contiene el ETL del proyecto.
 - **ETL_Drivers.ipynb**: Archivo Jupyter Notebook que contiene el segundo ETL del proyecto donde termino de limpiar y preparar los archivos csv para la tabla Driver y GP (Grand Prix).
 
